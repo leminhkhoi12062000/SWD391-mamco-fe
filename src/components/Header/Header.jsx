@@ -4,26 +4,26 @@ import React from 'react'
 
 import './header.css';
 
-const nav_links =[
+const nav_links = [
 	{
 		path: '#home',
 		display: 'Trang chủ'
 	},
 
-	{
-		path: '#news',
-		display: 'Tin tức'
-	},
+	// {
+	// 	path: '#news',
+	// 	display: 'Tin tức'
+	// },
 
-	{
-		path: '#contact',
-		display: 'Liên hệ'
-	},
+	// {
+	// 	path: '#contact',
+	// 	display: 'Liên hệ'
+	// },
 
-	{
-		path: '#cart',
-		display: 'Giỏ hàng'
-	},
+	// {
+	// 	path: '#cart',
+	// 	display: 'Giỏ hàng'
+	// },
 
 	{
 		path: '#service',
@@ -51,14 +51,19 @@ const nav_links =[
 	},
 ]
 
-const Header = () => {
+const Header = ({ theme, toggleTheme }) => {
 	return (
 		<header className="header">
 			<div className="container">
 				<div className="nav_wrapper">
 					<div className="logo">
 						<h2>Cỗ</h2>
-						
+
+					</div>
+
+					<div className="search">
+						<input type="text" placeholder="Món ăn" />
+						<button className="secondary_btn search_btn">Tìm</button>
 					</div>
 
 					{/*  ========= navigation ===========	*/}
@@ -66,11 +71,11 @@ const Header = () => {
 					<div className="navigation">
 						<ul className="menu">
 							{
-								nav_links.map((item,index)=>(
+								nav_links.map((item, index) => (
 									<li className="menu_item"><a href=
-									{item.path} className="menu_link">{item.display}
+										{item.path} className="menu_link">{item.display}
 									</a>
-								</li>
+									</li>
 								))
 							}
 						</ul>
@@ -79,12 +84,23 @@ const Header = () => {
 					{/*  ====================== light mode ================	*/}
 
 					<div className="light_mode">
-						<span><i class="ri-sun-line"></i> Light Mode</span>
+						<span onClick={toggleTheme}>
+							{
+								theme === "light-theme" ? (
+									<span>
+										<i class="ri-moon-line"></i>Dark
+									</span>
+								) : (
+									<span>
+										<i class="ri-sun-line"></i> Light 
+									</span>
+							)}
+						</span>
 					</div>
 				</div>
 			</div>
 		</header>
-		)
+	)
 }
 
 export default Header

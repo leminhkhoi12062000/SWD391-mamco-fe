@@ -6,13 +6,14 @@
 
 .nav_wrapper{
     display: flex;
-    align-items: center;
+    align-items: center;   
     justify-content: space-between;
 }
 
 .menu{
     display: flex;
-    align-items: center;
+    align-items :center;
+    /* text-align: right; */
     column-gap: 2.7rem;
     list-style: none;
 }
@@ -37,6 +38,13 @@
     align-items: center;
     column-gap: .4rem;
     font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.light-theme .light_mode span{
+    color: #000;
+    font-weight: 500;
+
 }
 
 
@@ -48,4 +56,13 @@
     top :0;
     left: 0;
     z-index: 9999;
+}
+
+.search input{
+    padding: 0.7rem 1.5rem;
+}
+
+.light-theme .search_btn{
+    background: var(--primary-color);
+    color:#fff;
 }

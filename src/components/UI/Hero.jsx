@@ -2,10 +2,12 @@
 import React from "react"
 import '../../styles/hero.css' 
 
-import sloganImg from '../../img/slogan.jpg'   
+import sloganDarkImg from "../../img/slogan.jpg";
+import sloganLightImg from "../../img/insta.jpg";  
 
-const Hero = () => {
-    return <section className='hero_section'>
+const Hero = ({theme}) => {
+    return (
+    <section className='hero_section'>
         <div className="container">
             <div className="hero_wrapper">
                 <div className="hero_content">
@@ -24,11 +26,15 @@ const Hero = () => {
                 </div>
 
                 <div className="hero_img">
-                    <img src={sloganImg} alt="hero-img" />
+                    <img 
+                    src={ theme==='light-theme' ? sloganLightImg : sloganDarkImg} 
+                    alt="hero-img" 
+                    />
                 </div>
             </div>
         </div>
     </section>
-}
+    );
+};
 
 export default Hero
